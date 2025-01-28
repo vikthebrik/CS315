@@ -41,21 +41,15 @@ def find_longest_path_and_count(n, edges):
     # Return results for node n
     return longest_path[n], path_count[n]
 
-# Receive Input, Print outputs
+# Receive Input, Format Output
 def main():
-    file_name = input("Enter the input file name: ")
-    try:
-        with open(file_name, "r") as f:
-            data = f.readlines()
+    data = sys.stdin.read().strip().splitlines()
 
-        n, m = map(int, data[0].split())
-        edges = [tuple(map(int, line.split())) for line in data[1:]]
+    n, m = map(int, data[0].split())
+    edges = [tuple(map(int, line.split())) for line in data[1:]]
 
-        longest_length, count = find_longest_path_and_count(n, edges)
-        print("Longest Length:", longest_length)
-        print("Count:", count)
-    except FileNotFoundError:
-        print("File not found. Please try again.")
+    longest_length, count = find_longest_path_and_count(n, edges)
+    print(longest_length, count)
 
 if __name__ == "__main__":
     main()
