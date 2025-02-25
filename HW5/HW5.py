@@ -1,17 +1,4 @@
 import sys
-
-def max_coins(target, denominations):
-     # Initialize DP array where dp[i] stores max coins to sum up to i
-    dp = [-1] * (target + 1)
-    dp[0] = 0  # Base case: 0 coins to make sum 0
-    
-    for coin in denominations:
-        for t in range(target, coin - 1, -1):
-            if dp[t - coin] != -1 and dp[t - coin] < 5:
-                dp[t] = max(dp[t], dp[t - coin] + 1)
-                print(dp[t], t, "| ")
-    
-    return dp[target]
 def max_zondor_coins(T, n, coins) :
 #innit
     dp = [-float ('inf')] * (T + 1)
